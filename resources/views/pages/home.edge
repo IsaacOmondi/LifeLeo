@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -405,4 +405,73 @@
       </div>
     </div>
   </body>
+</html> --}}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>LifeLeo - Tujitambue</title>
+  @vite(['resources/css/app.scss', 'resources/js/app.js'])
+</head>
+<body data-bs-theme="light" class="source-serif-4-regular" id="htmlPage">
+  <button type="button" id="toggleBrightnessMode" set-mode="light">
+    @svg('ic:baseline-wb-sunny')
+  </button>
+  <div class="container px-4 py-5" id="featured-3">
+    <h1>LifeLeo</h1>
+    <div class="col-md-7 p-lg-7 mx-auto my-5">
+      <h1 class="display-6 fw-normal">Track Your Journey, One Day at a Time</h1>
+      <p class="lead fw-normal">Capture life's moments with our simple, intuitive journaling app that helps you reflect on each day.</p>
+    </div>
+    <h2 class="pb-2 border-bottom">What to Expect</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+          @svg('ic:twotone-pending-actions', {
+            width: '1em',
+            height: '1em',
+          })
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Express your day in a click</h3>
+        <p>Share your daily mood with a single tap. Happy, neutral, or challenging – every feeling is valid and worth recording.</p>
+        <a href="#" class="icon-link">
+          Get Started
+          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+        </a>
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+          @svg('ic:outline-edit-note', {
+            width: '1em',
+            height: '1em',
+          })
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Tell Your Story</h3>
+        <p>Add context to your emotions. Whether it's a breakthrough moment or a quiet reflection, your words paint the full picture of your day.</p>
+        <a href="#" class="icon-link">
+          Get Started
+          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+        </a>
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+          @svg('ic:baseline-ssid-chart', {
+            width: '1em',
+            height: '1em',
+          })
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Your History, Your Growth</h3>
+        <p>Journey back through time with our calendar view. Rediscover your thoughts, track your emotional patterns, and witness your personal growth unfold.</p>
+        <a href="#" class="icon-link">
+          Get Started
+          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
