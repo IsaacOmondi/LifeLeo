@@ -418,8 +418,11 @@
   @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
 <body data-bs-theme="light" class="source-serif-4-regular" id="htmlPage">
-  <button type="button" id="toggleBrightnessMode" set-mode="light">
+  <button type="button" id="btnToggleLight">
     @svg('ic:baseline-wb-sunny')
+  </button>
+  <button type="button" id="btnToggleDark">
+    @svg('ic:round-nightlight')
   </button>
   <div class="container px-4 py-5" id="featured-3">
     <h1>LifeLeo</h1>

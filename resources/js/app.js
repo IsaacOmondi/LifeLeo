@@ -1,15 +1,15 @@
-function toggleBrightnessMode() {
+function toggleLightMode() {
   const html = document.getElementById('htmlPage')
-  const brightnessMode = document.getElementById('toggleBrightnessMode');
-  const setMode = brightnessMode.getAttribute('set-mode')
-  if (setMode == 'light') {
-    html.setAttribute('data-bs-theme', 'dark')
-  } else if (setMode == 'dark') {
-    html.setAttribute('data-bs-theme', 'light')
-  }
+  html.setAttribute('data-bs-theme', 'light')
+}
+
+function toggleDarkMode() {
+  const html = document.getElementById('htmlPage')
+  html.setAttribute('data-bs-theme', 'dark')
 }
 
 
-
-const brightnessMode = document.getElementById('toggleBrightnessMode');
-brightnessMode.addEventListener('click', toggleBrightnessMode)
+const btnToggleLight = document.getElementById('btnToggleLight');
+const btnToggleDark = document.getElementById('btnToggleDark');
+btnToggleLight.addEventListener('click', toggleLightMode)
+btnToggleDark.addEventListener('click', toggleDarkMode)
