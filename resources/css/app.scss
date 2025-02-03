@@ -21,3 +21,39 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+
+.form-body {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+}
+.mood-container {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.mood-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #dee2e6;
+  background-color: white;
+  transition: all 0.3s ease;
+  font-size: 2rem;
+  padding: 0;
+}
+.mood-button:hover {
+  transform: scale(1.1);
+  border-color: #6c757d;
+}
+.mood-button.active {
+  border-color: #0d6efd;
+  background-color: #e7f1ff;
+}
+.journal-card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.textarea-container {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
