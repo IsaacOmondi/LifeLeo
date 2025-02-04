@@ -7,18 +7,16 @@ import logger from '@adonisjs/core/services/logger'
 
 export default class JournalsController {
     // Create a new journal entry
-  async store({ request, response, auth, session }: HttpContext) {
+  async store({ request, response, auth }: HttpContext) {
     try {
         const userId = auth.user!.id
     
         // Check daily limit
         const reachedLimit = await Journal.reachedDailyLimit(userId)
         if (reachedLimit) {
-            session.flash('error', 'Daily journal limit reached (maximum 5 entries per day)')
-            return response.redirect().back()
-        //   return response.forbidden({ 
-        //     message: 'Daily journal limit reached (maximum 5 entries per day)' 
-        //   })
+            return response.tooManyRequests({
+                message: 'Daily journal limit reached (maximum 5 entries per day)'
+            })
         }
     
         const body = request.all()
