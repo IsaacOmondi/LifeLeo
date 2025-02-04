@@ -25,10 +25,10 @@ router.get('/google/callback', [AuthController, 'callback'])
 
 
 router.group(() => {
-    router.get('/journals/create', async ({ view }) => {
-        return view.render('pages/journals/create')
+    router.get('/journals/create', async ({ view, auth }) => {
+        return view.render('pages/journals/create', {user: auth.user})
     }).as('journals.create')
-    
+
     router.post('/journals', [JournalsController, 'store']).as('journals.store')
     router.get('/journals', [JournalsController, 'index'])
 }).use(middleware.auth())

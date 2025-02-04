@@ -20,7 +20,10 @@
             {{ csrfField() }}
 
             <div class="journal-card p-4 p-md-5 mx-auto" style="max-width: 600px;">
-                <h1 class="text-center mb-4" style="color: #2c3e50;">What's on your mind?</h1>
+                <div id="messageContainer" class="text-center mb-4" style="display: none;">
+                    <div id="messageText" class="alert" role="alert"></div>
+                </div>
+                <h1 class="text-center mb-4" style="color: var(--bs-);">What's on your mind, {{ user.fullName.trim().split(" ")[0] }}?</h1>
                 
                 {{-- Hidden input for mood --}}
                 <input type="hidden" name="mood" id="moodInput" required>

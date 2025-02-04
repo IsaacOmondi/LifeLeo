@@ -23,8 +23,8 @@ body {
 }
 
 .form-body {
-  background-color: #f8f9fa;
-  color: #2c3e50;
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
 }
 .mood-container {
   max-width: 300px;
@@ -34,26 +34,26 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 2px solid #dee2e6;
-  background-color: white;
+  border: 2px solid var(--bs-border-color);
+  background-color: var(--bs-body-bg);
   transition: all 0.3s ease;
   font-size: 2rem;
   padding: 0;
 }
 .mood-button:hover {
   transform: scale(1.1);
-  border-color: #6c757d;
+  border-color: var(--bs-body-color);
 }
 .mood-button.active {
-  border-color: #0d6efd;
-  background-color: #e7f1ff;
+  border-color: var(--bs-primary);
+  background-color: var(--bs-primary-bg-subtle);
 }
 .journal-card {
-  background-color: white;
+  background-color: var(--bs-body-bg);
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(var(--bs-body-color-rgb), 0.1);
 }
 .textarea-container {
-  background-color: #f8f9fa;
+  background-color: var(--bs-tertiary-bg);
   border-radius: 10px;
 }

@@ -32,27 +32,19 @@ export default class JournalsController {
           ...payload
         })
     
-        logger.info('Journal was created successfully', journal)
+        logger.info('Journal was created successfully: %s', journal)
     
-        // Flash success message
-        // session.flash('success', 'Journal entry saved successfully!')
 
-        // return response.created(journal) for api requests
-        return response.created(journal)
+        return response.created({
+            message: 'Journal entry saved successfully',
+            data: journal
+        })
     } catch (error) {
-        console.error('Error saving journal:', error)
-        
-        // Handle errors appropriately
-        if (request.accepts(['html', 'json']) === 'json') {
-            return response.badRequest({
-                message: 'Failed to save journal entry'
-            })
-        }
-
-        session.flash('error', 'Failed to save journal entry')
-        return response.redirect().back()
+        logger.error('Error saving journal: %s', error.toJSON())
+        return response.badRequest({
+            message: 'Failed to save journal entry'
+        })
     }
-    
   }
 
   // Get user's journal entries for today

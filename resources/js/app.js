@@ -8,6 +8,20 @@ function toggleDarkMode() {
   html.setAttribute('data-bs-theme', 'dark')
 }
 
+// Message handling function
+function showMessage(message, type) {
+  const container = document.getElementById('messageContainer');
+  const messageText = document.getElementById('messageText');
+  
+  messageText.textContent = message;
+  messageText.className = `alert alert-${type}`;
+  container.style.display = 'block';
+
+  setTimeout(() => {
+      container.style.display = 'none';
+  }, 5000);
+}
+
 const btnToggleLight = document.getElementById('btnToggleLight');
 const btnToggleDark = document.getElementById('btnToggleDark');
 btnToggleLight.addEventListener('click', toggleLightMode)
@@ -39,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Validate mood selection
       if (!moodInput.value) {
-          alert('Please select a mood before submitting');
+          showMessage('Please select a mood before submitting', 'danger');
           return;
       }
 
@@ -58,21 +72,15 @@ document.addEventListener('DOMContentLoaded', function() {
           });
 
           if (response.ok) {
-              // Handle successful submission
-              const result = await response.json();
-              alert('Journal entry saved successfully!');
-              // Optional: Reset form
-              form.reset();
-              moodButtons.forEach(btn => btn.classList.remove('active'));
-              moodInput.value = '';
+            showMessage('Journal entry saved successfully!', 'success');
+            form.reset();
+            moodButtons.forEach(btn => btn.classList.remove('active'));
+            moodInput.value = '';
           } else {
-              // Handle errors
-              const error = await response.json();
-              alert(error.message || 'Failed to save journal entry');
+            showMessage(result.message || 'Failed to save journal entry', 'danger');
           }
       } catch (error) {
-          console.error('Error:', error);
-          alert('An error occurred while saving your journal entry');
+        showMessage('An error occurred while saving your journal entry', 'danger');
       }
   });
 });
