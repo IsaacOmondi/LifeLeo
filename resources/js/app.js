@@ -1,11 +1,19 @@
+const htmlPage = document.getElementById('htmlPage');
+const btnToggleLight = document.getElementById('btnToggleLight');
+const btnToggleDark = document.getElementById('btnToggleDark');
+btnToggleLight.addEventListener('click', toggleLightMode);
+btnToggleDark.addEventListener('click', toggleDarkMode);
+
 function toggleLightMode() {
-  const html = document.getElementById('htmlPage')
-  html.setAttribute('data-bs-theme', 'light')
+  htmlPage.setAttribute('data-bs-theme', 'light');
+  localStorage.setItem('theme', 'light');
+  updateIconVisibility();
 }
 
 function toggleDarkMode() {
-  const html = document.getElementById('htmlPage')
-  html.setAttribute('data-bs-theme', 'dark')
+  htmlPage.setAttribute('data-bs-theme', 'dark');
+  localStorage.setItem('theme', 'dark');
+  updateIconVisibility();
 }
 
 // Message handling function
@@ -22,10 +30,18 @@ function showMessage(message, type) {
   }, 5000);
 }
 
-const btnToggleLight = document.getElementById('btnToggleLight');
-const btnToggleDark = document.getElementById('btnToggleDark');
-btnToggleLight.addEventListener('click', toggleLightMode)
-btnToggleDark.addEventListener('click', toggleDarkMode)
+// Function to update the visibility of icons based on current theme
+function updateIconVisibility() {
+  const currentTheme = htmlPage.getAttribute('data-bs-theme');
+  
+  if (currentTheme === 'dark') {
+      btnToggleLight.style.display = 'block';  // Show sun icon
+      btnToggleDark.style.display = 'none';    // Hide moon icon
+  } else {
+      btnToggleLight.style.display = 'none';   // Hide sun icon
+      btnToggleDark.style.display = 'block';   // Show moon icon
+  }
+}
 
 // Enhanced JavaScript for form handling
 document.addEventListener('DOMContentLoaded', function() {
@@ -84,3 +100,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 });
+
+// Add this to initialize the theme from localStorage when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+      htmlPage.setAttribute('data-bs-theme', savedTheme);
+      updateIconVisibility();
+  }
+});
+
+updateIconVisibility();

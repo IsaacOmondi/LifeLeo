@@ -7,11 +7,11 @@
   @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
 <body data-bs-theme="light" class="source-serif-4-regular" id="htmlPage">
-    <span id="btnToggleLight">
+    <span id="btnToggleLight" role="button" style="cursor: pointer;">
         @svg('ic:baseline-wb-sunny')
     </span>
-    <span id="btnToggleDark">
-    @svg('ic:round-nightlight')
+    <span id="btnToggleDark" role="button" style="cursor: pointer;">
+        @svg('ic:round-nightlight')
     </span>
     <div class="container py-5">
         {{-- Add form tag with proper action and method --}}

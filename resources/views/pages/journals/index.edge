@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeLeo - My Journals</title>
+  @vite(['resources/css/app.scss', 'resources/js/app.js'])
+</head>
+<body data-bs-theme="light" class="source-serif-4-regular" id="htmlPage">
+    <span id="btnToggleLight" role="button" style="cursor: pointer;">
+        @svg('ic:baseline-wb-sunny')
+    </span>
+    <span id="btnToggleDark" role="button" style="cursor: pointer;">
+        @svg('ic:round-nightlight')
+    </span>
+
+    <!-- Background decoration - subtle reading illustration -->
+    <div class="bg-decoration">
+        <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <pattern id="pattern-rain" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+                <line x1="5" y1="0" x2="5" y2="10" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#pattern-rain)"/>
+        </svg>
+    </div>
+
+    <div class="container py-5">
+        <h1 class="mb-4 text-center">My Journal Entries</h1>
+
+        <!-- Journal entries container -->
+        <div class="row g-4">
+            <!-- Sample journal entry -->
+            @each(journal in journals)
+                <div class="col-md-6 col-lg-4">
+                    <div class="journal-card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="journal-date">{{journal.createdAt}}</span>
+                            <div class="mood-indicator mood-{{mood[journal.mood].state}}">{{mood[journal.mood].emoji}}</div>
+                        </div>
+                        <div class="journal-text">
+                            {{journal.note}}
+                        </div>
+                    </div>
+                </div>
+            @end
+            <div class="col-md-6 col-lg-4">
+                <div class="journal-card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="journal-date">February 5, 2025</span>
+                        <div class="mood-indicator mood-good">😊</div>
+                    </div>
+                    <div class="journal-text">
+                        Today was productive! I managed to complete all my tasks and even had time for a short walk in the evening.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Another sample entry -->
+            <div class="col-md-6 col-lg-4">
+                <div class="journal-card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="journal-date">February 5, 2025</span>
+                        <div class="mood-indicator mood-neutral">😐</div>
+                    </div>
+                    <div class="journal-text">
+                        Regular day at work. Nothing particularly exciting, but that's okay sometimes.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenging day sample -->
+            <div class="col-md-6 col-lg-4">
+                <div class="journal-card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="journal-date">February 5, 2025</span>
+                        <div class="mood-indicator mood-challenging">😔</div>
+                    </div>
+                    <div class="journal-text">
+                        Had some difficulties with the project today, but tomorrow is another day to try again.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty state (shown when no journals) -->
+        <div class="empty-state d-none">
+            <h3>No journal entries yet</h3>
+            <p>Start your journaling journey today!</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -6,11 +6,6 @@
   padding: 0;
 }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
 
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 200 to 900
@@ -56,4 +51,97 @@ body {
 .textarea-container {
   background-color: var(--bs-tertiary-bg);
   border-radius: 10px;
+}
+
+/* Custom color scheme */
+:root {
+  /* Light mode variables */
+  --custom-bg: #f5f3f0;
+  --custom-card-bg: #ffffff;
+  --custom-text: #2c3e50;
+  --custom-accent: #7c9cbf;
+  --custom-border: #e2e8f0;
+  --mood-good: #9ed8b3;
+  --mood-neutral: #f5d087;
+  --mood-challenging: #e6a5a5;
+}
+
+[data-bs-theme="dark"] {
+  /* Dark mode variables */
+  --custom-bg: #1a2634;
+  --custom-card-bg: #243447;
+  --custom-text: #e2e8f0;
+  --custom-accent: #5c88b3;
+  --custom-border: #374151;
+  --mood-good: #53886b;
+  --mood-neutral: #8f7544;
+  --mood-challenging: #8b4d4d;
+}
+
+body {
+  background-color: var(--custom-bg);
+  color: var(--custom-text);
+  min-height: 100vh;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* Background decoration */
+.bg-decoration {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Journal card styling */
+.journal-card {
+  background-color: var(--custom-card-bg);
+  border: 1px solid var(--custom-border);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.journal-card:hover {
+  transform: translateY(-5px);
+}
+
+.mood-indicator {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.mood-good { background-color: var(--mood-good); }
+.mood-neutral { background-color: var(--mood-neutral); }
+.mood-challenging { background-color: var(--mood-challenging); }
+
+.journal-date {
+  color: var(--custom-accent);
+  font-size: 0.9rem;
+}
+
+.journal-text {
+  color: var(--custom-text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Empty state styling */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--custom-accent);
 }

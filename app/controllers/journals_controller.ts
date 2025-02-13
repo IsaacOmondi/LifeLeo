@@ -46,7 +46,7 @@ export default class JournalsController {
   }
 
   // Get user's journal entries for today
-  async index({ response, auth }: HttpContext) {
+  async index({ auth, view }: HttpContext) {
     const userId = auth.user!.id
     const today = DateTime.now().startOf('day')
 
@@ -61,6 +61,19 @@ export default class JournalsController {
       note: journal.decryptNote()
     }))
 
-    return response.ok(decryptedJournals)
+    return view.render('pages/journals/index', { journals: decryptedJournals, mood: {
+      1: {
+          state: 'good',
+          emoji: '😊',
+      },
+      2: {
+          state: 'neutral',
+          emoji: '😐',
+      },
+      3: {
+          state: 'challenging',
+          emoji: '😔',
+      }
+  }})
   }
 }
