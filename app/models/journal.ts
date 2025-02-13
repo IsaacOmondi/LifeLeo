@@ -21,7 +21,9 @@ export default class Journal extends BaseModel {
   @column()
   declare note: string | null
 
-  @column.dateTime({ autoCreate: true })
+  @column.dateTime({ autoCreate: true, serialize: (value: DateTime | null) => {
+    return value ? value.toLocaleString(DateTime.DATE_FULL) : value
+  }, })
   declare createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })

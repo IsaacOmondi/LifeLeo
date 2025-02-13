@@ -44,6 +44,6 @@ export default class AuthController {
 
         await auth.use('web').login(user)
 
-        response.redirect('/dashboard')
+        response.redirect('/journals/create')
     }
 }
