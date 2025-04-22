@@ -5,7 +5,7 @@ LifeLeo is a journalling app allowing users to record their thoughts for the day
 - PostgreSQL: Create a db in postgres named 'lifeleo'
 ## Setup
 Requires node v22+. 
-Uses Google Login, this would need a setting up on GCP (Google Cloud Platform)
+Uses Google Login, this would need a [setting up on GCP (Google Cloud Platform)](https://cloud.google.com/identity-platform/docs/web/google)
 ```bash
 git clone git@github.com:IsaacOmondi/LifeLeo.git
 cd LifeLeo
